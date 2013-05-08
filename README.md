@@ -26,5 +26,13 @@ Now you need to put your profile pictures under ./pool. You can use jpg, gif, or
 
 If you run the script now, it should upload a random picture to twitter to replace your profile picture. You can run it regularly with cron or trigger it off something else. If you want to change your banner, just uncomment the section in the script that runs "update_profile_banner".
 
+If the script errors back like this:
+
+    HTTP Response Code: 401
+    HTTP Message......: Unauthorized
+    Twitter error.....: Error processing your OAuth request: Read-only application cannot POST at tpc.pl line 37
+
+Just recreate your access token in the Details tab. Don't forget to update your access tokens in /secret/twitter2.config.
+
 
 my sample picture pool of files is a subset of sprites from https://code.google.com/p/project6014/
