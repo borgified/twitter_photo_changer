@@ -15,7 +15,7 @@ my $token_secret		= $config{token_secret};
 
 # As of 13-Aug-2010, Twitter requires OAuth for authenticated requests
 my $nt = Net::Twitter->new(
-    traits   => [qw/OAuth API::REST/],
+    traits   => [qw/OAuth API::RESTv1_1/],
     consumer_key        => $consumer_key,
     consumer_secret     => $consumer_secret,
     access_token        => $token,
@@ -23,7 +23,10 @@ my $nt = Net::Twitter->new(
 );
 
 eval {
-	my $result = $nt->update_profile_image("./androsynth.png");
+	#my $a=['androsynth.png','androsynth.png', 'Content_Type => image/png'];
+	my $a=['b.jpg','b.jpg', 'Content_Type => image/png'];
+	#my $result = $nt->update_profile_banner($a);
+	my $result = $nt->update_profile_image($a);
 	print "result: $result\n";
 };
 if ( my $err = $@ ) {
