@@ -32,7 +32,8 @@ If the script errors back like this:
     HTTP Message......: Unauthorized
     Twitter error.....: Error processing your OAuth request: Read-only application cannot POST at tpc.pl line 37
 
-Just make sure your Settings is for Read and Write, then recreate your access token in the Details tab. Don't forget to update your access token secret in /secret/twitter2.config.
+Just make sure your Settings is for Read and Write, then recreate your access token in the Details tab. 
+Don't forget to update your access token and secret in /secret/twitter2.config.
 
 
 my sample picture pool of files is a subset of sprites from https://code.google.com/p/project6014/
