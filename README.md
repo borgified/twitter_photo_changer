@@ -10,7 +10,7 @@ How to make it work
     * upper right dropdown, My Applications.
     * Create new application.
     * Goto Settings tab and pick Read and Write Access.
-    * Create new application.
+    * click "Update this Twitter application's settings" at bottom
     * Under Details tab, click "Create my access token". 
     * goto OAuth tool tab and grab the 4 keys.
 
