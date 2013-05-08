@@ -2,7 +2,7 @@
 
 use warnings;
 use strict;
-use Net::Twitter;
+use Net::Twitter 4.00005;
 use Scalar::Util 'blessed';
 use LWP::UserAgent;
 
@@ -22,13 +22,22 @@ my $nt = Net::Twitter->new(
     access_token_secret => $token_secret,
 );
 
+#pick a random png from ./pool/
+my @files = (<./pool/*.png>);
+my $randf = $files[rand @files];
+
 eval {
-	#my $a=['androsynth.png','androsynth.png', 'Content_Type => image/png'];
-	my $a=['b.jpg','b.jpg', 'Content_Type => image/png'];
+
+	my $a=[$randf,$randf, 'Content_Type => image/png'];
+
+#this updates your background
 	#my $result = $nt->update_profile_banner($a);
+	
+#this updates your profile pic
 	my $result = $nt->update_profile_image($a);
-	print "result: $result\n";
+
 };
+
 if ( my $err = $@ ) {
 	die $@ unless blessed $err && $err->isa('Net::Twitter::Error');
 
