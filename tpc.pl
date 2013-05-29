@@ -44,5 +44,7 @@ if ( my $err = $@ ) {
 	warn "HTTP Response Code: ", $err->code, "\n",
 			 "HTTP Message......: ", $err->message, "\n",
 			 "Twitter error.....: ", $err->error, "\n";
+} else {
+	print "picture updated to $randf\n";
 }
 
