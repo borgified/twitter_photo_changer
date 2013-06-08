@@ -12,6 +12,8 @@ my $consumer_key		= $config{consumer_key};
 my $consumer_secret		= $config{consumer_secret};
 my $token			= $config{token};
 my $token_secret		= $config{token_secret};
+#this is the full path of all the pictures to pick from
+my $pool = $config{pool};
 
 # As of 13-Aug-2010, Twitter requires OAuth for authenticated requests
 my $nt = Net::Twitter->new(
@@ -23,7 +25,7 @@ my $nt = Net::Twitter->new(
 );
 
 #pick a random png from ./pool/
-my @files = (<./pool/*.png>);
+my @files = (<$pool/*.png>);
 my $randf = $files[rand @files];
 
 eval {
@@ -43,7 +45,7 @@ my $timestamp = localtime;
 if ( my $err = $@ ) {
 	die $@ unless blessed $err && $err->isa('Net::Twitter::Error');
 
-	print "$timestamp\n",
+	print "$timestamp using $randf\n",
 			 "HTTP Response Code: ", $err->code, "\n",
 			 "HTTP Message......: ", $err->message, "\n",
 			 "Twitter error.....: ", $err->error, "\n";
