@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Twitter photo changer by borgified</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Twitter photo changer</h1>
+        <p>changes your twitter's profile pic</p>
+
+        <p class="view"><a href="https://github.com/borgified/twitter_photo_changer">View the Project on GitHub <small>borgified/twitter_photo_changer</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/borgified/twitter_photo_changer/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/borgified/twitter_photo_changer/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/borgified/twitter_photo_changer">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <p>small script to automatically update your twitter profile pic and/or background banner based on whatever you want... weather, random, at some regular interval, etc.</p>
+
+<h2>
+<a name="how-to-make-it-work" class="anchor" href="#how-to-make-it-work"><span class="octicon octicon-link"></span></a>How to make it work</h2>
+
+<ol>
+<li><p>tpc.pl is does all the work. to be able to change your profile and/or banner pic, it needs read/write permissions to your twitter account. to get these permissions, you need to generate: consumer key, consumer secret, access token, and access token secret.</p></li>
+<li>
+<p>Creating access tokens/keys</p>
+
+<ul>
+<li>goto <a href="https://dev.twitter.com">https://dev.twitter.com</a>, sign in.</li>
+<li>upper right dropdown, My Applications.</li>
+<li>Create new application.</li>
+<li>Goto Settings tab and pick Read and Write Access.</li>
+<li>click "Update this Twitter application's settings" at bottom</li>
+<li>Under Details tab, click "Create my access token". </li>
+<li>goto OAuth tool tab and grab the 4 keys.</li>
+</ul>
+</li>
+</ol><p>In the script I store these keys in /secret/twitter2.config. The format of this file is easy, here's an example:</p>
+
+<pre><code>consumer_key        =&gt; 'asdfjk',
+consumer_secret     =&gt; 'lajflsakjfd',
+token        =&gt; 'alskjdflsakjdflk',
+token_secret =&gt; 'ajfalkjfd',
+</code></pre>
+
+<p>Now you need to put your profile pictures under ./pool. You can use jpg, gif, or png, I think they'll all work even though the mime_type in the script says image/png.</p>
+
+<ul>
+<li>Pictures must be &lt; 800 kB and will be scaled down by twitter if too big.</li>
+</ul><p>If you run the script now, it should upload a random picture to twitter to replace your profile picture. You can run it regularly with cron or trigger it off something else. If you want to change your banner, just uncomment the section in the script that runs "update_profile_banner".</p>
+
+<p>If the script errors back like this:</p>
+
+<pre><code>HTTP Response Code: 401
+HTTP Message......: Unauthorized
+Twitter error.....: Error processing your OAuth request: Read-only application cannot POST at tpc.pl line 37
+</code></pre>
+
+<p>Just make sure your Settings is for Read and Write, then recreate your access token in the Details tab. 
+Don't forget to update your access token and secret in /secret/twitter2.config.</p>
+
+<p>my sample picture pool of files is a subset of sprites from <a href="https://code.google.com/p/project6014/">https://code.google.com/p/project6014/</a></p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/borgified">borgified</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
