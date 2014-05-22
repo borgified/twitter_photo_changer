@@ -22,6 +22,7 @@ my $nt = Net::Twitter->new(
     consumer_secret     => $consumer_secret,
     access_token        => $token,
     access_token_secret => $token_secret,
+		ssl									=> 1,
 );
 
 #pick a random png from ./pool/
