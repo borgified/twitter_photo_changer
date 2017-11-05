@@ -51,6 +51,7 @@ if ( my $err = $@ ) {
 			 "HTTP Message......: ", $err->message, "\n",
 			 "Twitter error.....: ", $err->error, "\n";
 } else {
-	print "$timestamp picture updated to $randf\n";
+  print "$timestamp picture updated to $randf\n";
+  exit 0
 }
 

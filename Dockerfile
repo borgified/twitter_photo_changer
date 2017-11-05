@@ -9,4 +9,4 @@ RUN carton install --deployment
 COPY tpc.pl /usr/src/app
 COPY pool/ /usr/src/app/pool
 
-CMD carton exec perl tpc.pl
+CMD [ "carton exec perl tpc.pl" ]
