@@ -6,14 +6,14 @@ use Net::Twitter 4.00005;
 use Scalar::Util 'blessed';
 use LWP::UserAgent;
 
-my %config = do '/secret/twitter2.config';
+#my %config = do '/secret/twitter2.config';
 
-my $consumer_key		= $config{consumer_key};
-my $consumer_secret		= $config{consumer_secret};
-my $token			= $config{token};
-my $token_secret		= $config{token_secret};
+my $consumer_key		= $ENV{'consumer_key'};
+my $consumer_secret		= $ENV{'consumer_secret'};
+my $token			= $ENV{'token'};
+my $token_secret		= $ENV{'token_secret'};
 #this is the full path of all the pictures to pick from
-my $pool = $config{pool};
+my $pool = $ENV{'pool'};
 
 # As of 13-Aug-2010, Twitter requires OAuth for authenticated requests
 my $nt = Net::Twitter->new(
